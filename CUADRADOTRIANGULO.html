@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREAR UN CUADRADO Y UN TRIÁNGULO</title>
+</head>
+<body>
+
+<h2>CUADRADO Y UN TRIÁNGULO</h2>
+<h2>vigil silva caytuiro</h2>
+
+<canvas id="myCanvas" width="500" height="500" style="border:4px solid red;"></canvas>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // Línea divisoria
+    ctx.beginPath();
+    ctx.moveTo(0, 250);
+    ctx.lineTo(500, 250);
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // CUADRADO (arriba - solo borde)
+    ctx.beginPath();
+    ctx.rect(180, 50, 140, 140); // centrado arriba
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // TRIÁNGULO (abajo - solo borde)
+    ctx.beginPath();
+    ctx.moveTo(250, 300); // vértice superior
+    ctx.lineTo(180, 420); // inferior izquierdo
+    ctx.lineTo(320, 420); // inferior derecho
+    ctx.closePath();
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Barras con Porcentajes</title>
+</head>
+<body>
+
+<h2>GRÁFICO DE BARRAS </h2>
+<h2>VIGIL SILVA CAYTUIRO </h2>
+
+<canvas id="myCanvas" width="600" height="400" style="border:2px solid black;"></canvas>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // Datos en porcentaje
+    var datos = [50, 60, 70, 90, 100];
+    var etiquetas = ["A", "B", "C", "D", "E"];
+    var colores = ["red", "blue", "green", "orange", "purple"];
+
+    var anchoBarra = 60;
+    var espacio = 30;
+    var x = 50;
+
+    var alturaMax = 300; // altura máxima del gráfico
+
+    // Dibujar ejes
+    ctx.beginPath();
+    ctx.moveTo(40, 20);   
+    ctx.lineTo(40, 350);
+    ctx.lineTo(580, 350); 
+    ctx.stroke();
+
+    // Dibujar barras
+    for (var i = 0; i < datos.length; i++) {
+        var porcentaje = datos[i];
+        var altura = (porcentaje / 100) * alturaMax;
+
+        ctx.fillStyle = colores[i];
+        ctx.fillRect(x, 350 - altura, anchoBarra, altura);
+
+        // Mostrar porcentaje arriba
+        ctx.fillStyle = "black";
+        ctx.fillText(porcentaje + "%", x + 10, 350 - altura - 5);
+
+        // Etiquetas abajo
+        ctx.fillText(etiquetas[i], x + 20, 370);
+
+        x += anchoBarra + espacio;
+    }
+
+</script>
+
+</body>
+</html>
